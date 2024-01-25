@@ -1,5 +1,7 @@
 import { useState } from "react";
 import {Link, useNavigate} from 'react-router-dom'
+import { toast } from "react-toastify";
+
 
 //importing google firebase configs
 import {getAuth, createUserWithEmailAndPassword, updateProfile} from 'firebase/auth'
@@ -36,7 +38,7 @@ function SignUp() {
             updateProfile(auth.currentUser, {
                 displayName: name,
             })
-            
+
             //forming the data for the database
             const formDataCopy = { ...formData }
             delete formDataCopy.password
@@ -47,7 +49,7 @@ function SignUp() {
 
             navigate('/')
         } catch (error) {
-            console.log(error)
+            toast.error('Something wrong with registration')
         }
     }
 

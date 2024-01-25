@@ -4,7 +4,7 @@ import {ReactComponent as ExploreIcon} from '../assets/svg/exploreIcon.svg'
 import {ReactComponent as PersonOutlineIcon} from '../assets/svg/personOutlineIcon.svg'
 
 
-function NavBar() {
+function Navbar() {
     const navigate = useNavigate()
     const location = useLocation()
     const pathMatchRoute = (route) => {
@@ -36,4 +36,4 @@ function NavBar() {
   );
 }
 
-export default NavBar;
+export default Navbar;
