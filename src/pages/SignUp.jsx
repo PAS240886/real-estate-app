@@ -1,6 +1,7 @@
 import { useState } from "react";
 import {Link, useNavigate} from 'react-router-dom'
 import { toast } from "react-toastify";
+import OAuth from "../components/OAuth";
 
 
 //importing google firebase configs
@@ -31,13 +32,21 @@ function SignUp() {
     //Google firebase auth
     const onSubmit = async (e) => {
         e.preventDefault()
+    
         try {
-            const auth = getAuth()
-            const userCredential = await createUserWithEmailAndPassword(auth, email, password)
-            const user = userCredential.user
-            updateProfile(auth.currentUser, {
-                displayName: name,
-            })
+          const auth = getAuth()
+    
+          const userCredential = await createUserWithEmailAndPassword(
+            auth,
+            email,
+            password
+          )
+    
+          const user = userCredential.user
+    
+          updateProfile(auth.currentUser, {
+            displayName: name,
+          })
 
             //forming the data for the database
             const formDataCopy = { ...formData }
@@ -49,7 +58,7 @@ function SignUp() {
 
             navigate('/')
         } catch (error) {
-            toast.error('Something wrong with registration')
+            toast.error('')
         }
     }
 
@@ -76,6 +85,7 @@ function SignUp() {
                     </button>
                 </div>
             </form>
+            <OAuth />
         </main>
         <Link to='/sign-in' className='registerLink' >Sign In</Link>
       </div>
