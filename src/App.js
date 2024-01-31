@@ -9,6 +9,7 @@ import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
 import Navbar from './components/Navbar'
 import PrivateRoute from "./components/PrivateRoute";
+import Category from "./pages/Category";
 
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
             <Route path='/profile' element={<Profile />} />
           </Route>
           <Route path='/offers' element={<Offers />} />
+          <Route path='/category/:categoryName' element={<Category />} />
           <Route path='/sign-in' element={<SignIn />} />
           <Route path='/sign-up' element={<SignUp />} />
         </Routes>
